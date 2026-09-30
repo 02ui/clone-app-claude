@@ -1,0 +1,14 @@
+{
+  "name": "clone-app-claude-scripts",
+  "private": true,
+  "type": "module",
+  "description": "Capture, compare and partition scripts for the clone-app-claude skill.",
+  "scripts": {
+    "test": "node test/run-test.mjs"
+  },
+  "dependencies": {
+    "pixelmatch": "^6.0.0",
+    "playwright": "^1.55.0",
+    "pngjs": "^7.0.0"
+  }
+}

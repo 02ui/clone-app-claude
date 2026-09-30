@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Fixture app</title>
+<style>
+  body { margin: 0; background: #f7f7f4; color: #26251d; font: 16px/1.5 Helvetica, Arial, sans-serif; }
+  header { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; border-bottom: 1px solid rgba(38, 37, 29, 0.12); }
+  h1 { font-size: 32px; font-weight: 400; letter-spacing: -0.02em; margin: 0; }
+  .btn { border: 0; border-radius: 8px; padding: 8px 14px; color: #fff; cursor: pointer;
+         background-image: linear-gradient(135deg, rgb(99, 102, 241) 0%, rgb(139, 92, 246) 100%); transition: opacity .2s ease; }
+  .btn:hover { opacity: .8; }
+  .ghost { background: transparent; color: #26251d; border: 1px solid rgba(38, 37, 29, 0.2); border-radius: 8px; padding: 8px 14px; cursor: pointer; }
+  .ghost:hover { background: rgba(38, 37, 29, 0.06); }
+  main { padding: 24px; display: grid; gap: 16px; }
+  .card { background: #fff8; border-radius: 16px; padding: 20px; box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px 0px, rgba(0, 0, 0, 0.24) 0px 1px 2px 0px; }
+  .row { padding: 10px 12px; border-radius: 6px; }
+  .row:nth-child(odd) { background: rgba(38, 37, 29, 0.04); }
+  .menu { display: none; position: absolute; top: 60px; right: 24px; background: #fffdf8; border-radius: 10px; padding: 6px;
+          box-shadow: rgba(0, 0, 0, 0.16) 0px 8px 24px 0px; }
+  .menu.open { display: block; }
+  .menu div { padding: 6px 10px; }
+  @media (max-width: 600px) { h1 { font-size: 24px; } main { padding: 12px; } }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Fixture app</h1>
+    <div>
+      <button class="ghost" aria-haspopup="menu" aria-label="Filter" onclick="document.querySelector('.menu').classList.toggle('open')">Filter</button>
+      <button class="btn" onclick="fetch('/api/save', {method: 'POST', body: 'x'})">Save</button>
+      <button class="ghost" onclick="fetch('/api/workspace', {method: 'DELETE'}); document.body.style.background = 'red'">Delete workspace</button>
+    </div>
+  </header>
+  <div class="menu" role="menu"><div>Active</div><div>Backlog</div><div>All issues</div></div>
+  <main>
+    <section class="card">
+      <h2>Issues</h2>
+      <div class="list">
+        <div class="row">Fix login redirect</div>
+        <div class="row">Ship new onboarding</div>
+        <div class="row">Update pricing page</div>
+        <div class="row">Refactor sidebar</div>
+        <div class="row">Write release notes</div>
+      </div>
+    </section>
+    <section class="card"><p>Contact: jane.doe@company.com</p></section>
+  </main>
+</body>
+</html>
